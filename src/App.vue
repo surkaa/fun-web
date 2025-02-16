@@ -4,11 +4,11 @@
 
 <template>
   <div id="main">
-    <h1>Fun Web</h1>
+    <router-view/>
   </div>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 #main {
   width: 100%;
   height: 100%;
