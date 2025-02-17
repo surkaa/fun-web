@@ -13,29 +13,6 @@
 [![Demo Button](https://img.shields.io/badge/立即体验-FF69B4?style=for-the-badge&logo=chromium)](https://your-demo-link.com)
 *推荐使用移动端访问，体验更佳*
 
-## 🌟 核心功能
-
-### 🤖 智能互动系统
-
-- **逃避点击机制**：拒绝按钮随机位移 + 自动放大接受按钮
-- **多状态表情系统**：6种精细表情动画（害羞/期待/生气/哭泣等）
-- **拖拽物理引擎**：爱心支持抛物线拖拽效果
-
-### 🎨 深度定制支持
-
-```bash
-# 快速自定义配置
-├── public/svgs/          # 表情图标库（SVG矢量）
-├── src/views/            # 交互逻辑组件
-└── src/style.css        # 动画参数调节
-```
-
-### 📱 全平台适配
-
-- 移动端优先设计
-- 桌面端粒子背景特效
-- 自动DPI适配（支持4K屏）
-
 ## 🛠️ 快速启动
 
 ```bash
@@ -51,29 +28,22 @@ pnpm install && pnpm dev
 | `pnpm build`   | 生产环境构建        |
 | `pnpm preview` | 本地预览生产构建      |
 
-## 🎯 定制指南
+## 🎯 定制服务
 
 ### 基础定制（免费）
 
-```vue
-<!-- 修改src/views/LoveConfession.vue -->
-const messages = [
-'再考虑下嘛',   // 修改提示文案
-'真的忍心吗',   // 最多支持6个状态
-'我要哭了哦'
-]
-```
+- 修改文字、颜色、图片等基础内容
 
-### 高级定制（[联系作者](https://your-contact-page.com)）
+### 高级定制
 
-```ts
-// 专业定制服务示例
-interface SpecialConfig {
-  particleEffect: 'sakura' | 'snow'  // 粒子特效
-  voicePack: boolean                 // 语音包支持
-  miniGame: 'memory' | 'puzzle'      // 内置小游戏
-}
-```
+- 网页开发：官网、商城、数据大屏等
+- 小程序：微信、抖音、支付宝平台
+- 移动应用：iOS/Android原生应用
+- 特色功能：支付、地图、即时通讯等
+- 设计服务：UI/UX、品牌视觉、动效设计
+
+**服务优势**：专业团队、全流程服务、快速响应  
+**联系定制**：发送需求至邮箱：suralcarywn@163.com
 
 ## 🤝 贡献指南
 
@@ -81,13 +51,6 @@ interface SpecialConfig {
 
 1. 图标资源请存放至`public/svgs/`
 2. 页面路由配置见`src/router/index.ts`
-3. 使用commitizen规范提交信息
-
-[//]: # (## 📜 开源协议)
-
-[//]: # ()
-
-[//]: # (MIT License | 商业使用请遵守[附加条款]&#40;LICENSE-COMMERCIAL&#41;)
 
 ---
 

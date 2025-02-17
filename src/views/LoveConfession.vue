@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import {computed, ref} from 'vue'
+import {getImageUrl} from "../utils/images.ts";
 
 // 响应式数据
 const rejectCount = ref(0)
@@ -57,7 +58,7 @@ const handleYesClick = () => {
         <span v-text="heartContent"></span>
       </div>
       <img
-          :src="getCharacterImage"
+          :src="getImageUrl(getCharacterImage)"
           alt="character"
           class="character"
       >
