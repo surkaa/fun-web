@@ -1,30 +1,25 @@
 <script setup lang="ts">
 import {computed, ref} from 'vue'
 
-type CharacterState = 'happy' | 'sad' | 'excited'
-
 // 响应式数据
 const rejectCount = ref(0)
-const characterState = ref<CharacterState>('happy')
 const isYesClicked = ref(false)
 const heartContent = ref('')
-const isDragging = ref(false)
 
 // 配置数据
 const messages = [
-  'ฅ•ω•ฅ 你...你确定吗？',
-  '٩(๑´0`๑)۶ 再想想哦～',
-  '(｡•́︿•̀｡) 你会后悔的...',
-  '＞︿＜ 没有后悔药哒！',
-  '(,,•́ . •̀,,) 真的不要嘛？',
-  '（＞д＜）最后一次机会！',
-  'o(´^｀)o 哼！不可以！'
+  {text: 'ฅ•ω•ฅ 你...你确定吗？', svg: '/svgs/1F48C.svg'},
+  {text: '٩(๑´0`๑)۶ 再想想哦～', svg: '/svgs/1F928.svg'},
+  {text: '(｡•́︿•̀｡) 你会后悔的...', svg: '/svgs/1F620.svg'},
+  {text: '＞︿＜ 没有后悔药哒！', svg: '/svgs/1F624.svg'},
+  {text: '（＞д＜）最后一次机会！', svg: '/svgs/1F97A.svg'},
+  {text: 'o(´^｀)o 哼！不可以！', svg: '/svgs/1F97A.svg'},
 ]
 
 // 计算属性
 const currentNoButtonText = computed(() =>
     rejectCount.value > 0
-        ? messages[Math.min(rejectCount.value - 1, messages.length - 1)]
+        ? messages[Math.min(rejectCount.value - 1, messages.length - 1)].text
         : '不要'
 )
 
@@ -32,51 +27,21 @@ const yesButtonStyle = computed(() => ({
   transform: `scale(${1 + rejectCount.value * 0.2})`
 }))
 
-const getCharacterImage = computed(() => {
-  const images = {
-    happy: '/images/happy.png',
-    sad: '/images/sad.png',
-    excited: '/images/excited.png'
-  }
-  return images[characterState.value]
-})
-
-// 事件处理
-const handleNoHover = () => {
-  if (!isYesClicked.value) {
-    characterState.value = 'sad'
-  }
-}
+const getCharacterImage = computed(() =>
+    isYesClicked.value ? '/svgs/1F970.svg' :
+        messages[Math.min(rejectCount.value, messages.length - 1)].svg
+)
 
 const handleNoClick = () => {
   rejectCount.value += 1
-  heartContent.value += '❓'
+  heartContent.value = '❓'
 }
 
 const handleYesClick = () => {
-  characterState.value = 'excited'
   isYesClicked.value = true
   heartContent.value = '🎉💖🎉'
 }
 
-// 拖拽处理
-const handleDragStart = () => {
-  isDragging.value = true
-}
-
-const handleDragEnd = (e: DragEvent) => {
-  isDragging.value = false
-  const target = e.target as HTMLElement
-  const rect = target.getBoundingClientRect()
-
-  if (e.clientX > rect.left &&
-      e.clientX < rect.right &&
-      e.clientY > rect.top &&
-      e.clientY < rect.bottom
-  ) {
-    handleYesClick()
-  }
-}
 </script>
 
 <template>
@@ -86,17 +51,15 @@ const handleDragEnd = (e: DragEvent) => {
         <div
             class="heart"
             draggable="true"
-            @dragstart="handleDragStart"
-            @dragend="handleDragEnd"
         >
-          ❤️{{ heartContent }}
+          ❤️
         </div>
+        <span v-text="heartContent"></span>
       </div>
       <img
           :src="getCharacterImage"
           alt="character"
           class="character"
-          :class="{ 'character--sad': characterState === 'sad' }"
       >
     </div>
     <div class="buttons" v-if="!isYesClicked">
@@ -110,7 +73,6 @@ const handleDragEnd = (e: DragEvent) => {
       <button
           v-if="!isYesClicked"
           id="noBtn"
-          @mouseover="handleNoHover"
           @click="handleNoClick"
       >
         {{ currentNoButtonText }}
@@ -164,11 +126,6 @@ $secondary-color: #f8bbd0;
   .character {
     width: 150px;
     transition: transform 0.3s ease;
-
-    &--sad {
-      filter: brightness(0.9);
-      transform: rotate(5deg);
-    }
   }
 
   .buttons {
