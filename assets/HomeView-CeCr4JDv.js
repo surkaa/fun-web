@@ -1,0 +1,1 @@
+import{_ as o,c as t,a as n,o as s}from"./index-D2bBZKeS.js";const r={},c={id:"home"};function a(_,e){return s(),t("div",c,e[0]||(e[0]=[n("h1",null,"Fun Web",-1)]))}const i=o(r,[["render",a]]);export{i as default};
