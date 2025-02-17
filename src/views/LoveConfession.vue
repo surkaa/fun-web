@@ -79,7 +79,7 @@ const handleYesClick = () => {
         {{ currentNoButtonText }}
       </button>
     </div>
-    <div class="source-code">
+<!--    <div class="source-code">
       <a
           href="https://github.com/surkaa/fun-web/blob/master/src/views/LoveConfession.vue"
           target="_blank"
@@ -87,7 +87,7 @@ const handleYesClick = () => {
       >
         源码
       </a>
-    </div>
+    </div>-->
   </div>
 </template>
 
