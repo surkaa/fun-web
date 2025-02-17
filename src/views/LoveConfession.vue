@@ -78,6 +78,15 @@ const handleYesClick = () => {
         {{ currentNoButtonText }}
       </button>
     </div>
+    <div class="source-code">
+      <a
+          href="https://github.com/surkaa/fun-web/blob/master/src/views/LoveConfession.vue"
+          target="_blank"
+          rel="noopener noreferrer"
+      >
+        源码
+      </a>
+    </div>
   </div>
 </template>
 
@@ -159,6 +168,20 @@ $secondary-color: #f8bbd0;
           box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
         }
       }
+    }
+  }
+
+  .source-code {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+    padding: 0.5rem;
+
+    a {
+      text-decoration: none;
     }
   }
 }
