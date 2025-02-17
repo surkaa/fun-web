@@ -10,7 +10,7 @@
 
 ## 🎮 在线体验
 
-[![Demo Button](https://img.shields.io/badge/立即体验-FF69B4?style=for-the-badge&logo=chromium)](https://your-demo-link.com)
+[![Demo Button](https://img.shields.io/badge/立即体验-FF69B4?style=for-the-badge&logo=chromium)](https://surkaa.github.io/fun-web)
 *推荐使用移动端访问，体验更佳*
 
 ## 🛠️ 快速启动
